@@ -46,6 +46,7 @@ public class User {
     private Providers providers = Providers.SELF;
     private String providerUserId;
 
+    // map contacts with users(one user can have many contacts)
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Contact> contacts = new ArrayList<>();
 }

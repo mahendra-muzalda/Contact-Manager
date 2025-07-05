@@ -33,6 +33,7 @@ public class Contact {
     @ManyToOne
     private User user;
 
+    //map contacts with social media links (one contact may link with many socialLink like github,google etc..)
     @OneToMany(mappedBy = "contacts",cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<SocialLink> links = new ArrayList<>();
     

@@ -16,7 +16,7 @@ public class PageController {
 
     @RequestMapping("/home")
     public String home(Model model){
-        logger.info("**************************8Welcome to home page**************************8");
+        logger.info("**************************Welcome to home page**************************");
         model.addAttribute("name","Substring");
         model.addAttribute("YouTube","Learn code with Durgesh");
         model.addAttribute("githubRepo", "https://github.com/");
