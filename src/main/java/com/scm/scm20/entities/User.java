@@ -43,7 +43,7 @@ public class User {
     private boolean phoneVerified = false;
 
     //SELF , GOOGLE , FACEBOOK , TWITTER , LINKEDIN, 
-    private Providers providers = Providers.SELF;
+    private Providers provider = Providers.SELF;
     private String providerUserId;
 
     // map contacts with users(one user can have many contacts)
