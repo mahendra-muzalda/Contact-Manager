@@ -12,12 +12,16 @@
         <div class="grid grid-cols-12">
 
             <!-- Left space  -->
-            <div class="hidden md:block md:col-span-2 lg:col-span-3 xl:col-span-4"></div>
+            <div class="hidden md:block md:col-span-2 lg:col-span-2 xl:col-span-3"></div>
 
             <!-- Singup/Login card -->
-            <div class="block p-3 col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
+            <div class="block p-3 col-span-12 md:col-span-8 lg:col-span-8 xl:col-span-6">
                 <div
                     class="block p-4 bg-white  border-t-4 border-blue-400  rounded-lg shadow-sm sm:p-6 md:p-8 dark:bg-gray-800 dark:border-blue-400">
+
+                    <!-- Alert message -->
+                    <div th:replace="~{message :: messageAlert}"></div>
+
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Singup Here
                     </h5>
@@ -26,7 +30,13 @@
                     </p>
 
                     <!-- This is our form -->
-                    <form th:action="@{'/do-register'}" method="post" th:object="${userForm}" class="mt-5">
+                    <form 
+                       th:action="@{'/do-register'}" 
+                       method="post" 
+                       th:object="${userForm}" 
+                       class="mt-5" 
+                       novalidate
+                    >
 
                         <!-- name -->
                         <div class="mb-3">
@@ -35,6 +45,9 @@
                             <input type="text" id="name" th:field="*{name}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Enter here" required />
+
+                            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-red-500 py-2 px-1">
+                                User name is required</p>
                         </div>
 
                         <!-- email -->
@@ -45,6 +58,9 @@
                             <input type="email" id="email" th:field="*{email}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="name@flowbite.com" required />
+
+                                <p th:if="${#fields.hasErrors('name')}" th:errors="*{email}" class="text-red-500 py-2 px-1">
+                                User name is required</p>
                         </div>
 
                         <!-- password -->
@@ -55,8 +71,12 @@
                             <input type="password" id="password" th:field="*{password}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Enter here" required />
+
+                                <p th:if="${#fields.hasErrors('name')}" th:errors="*{password}" class="text-red-500 py-2 px-1">
+                                User name is required</p>
                         </div>
 
+                        <!-- phone Number -->
                         <div class="mb-3">
                             <label for="phone"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Number
@@ -64,6 +84,9 @@
                             <input type="text" id="phone" th:field="*{phoneNumber}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Enter here" required />
+
+                                <p th:if="${#fields.hasErrors('name')}" th:errors="*{phoneNumber}" class="text-red-500 py-2 px-1">
+                                User name is required</p>
                         </div>
 
                         <!-- about textarea -->

@@ -20,7 +20,8 @@ public class UserServicesImpl implements UserService{
 
 
     @Autowired
-    private UserRepository userRepository;
+    private UserRepository userRepository; 
+    
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
