@@ -15,7 +15,7 @@ public class Message {
 
     private String content;
     @Builder.Default
-    private MessageType type = MessageType.BLUE ; // success, error, info, warning
+    private MessageType type = MessageType.blue ; // success, error, info, warning
 
 
 }
